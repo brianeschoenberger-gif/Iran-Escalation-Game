@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deadline Diplomacy: 10 Days</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app" id="app">
+      <section id="title-screen" class="screen active" aria-live="polite">
+        <h1>Deadline Diplomacy: <span>10 Days</span></h1>
+        <p class="tagline">A fictional crisis negotiation thriller under a ticking clock.</p>
+        <p class="disclaimer">
+          Inspired by current events. This is a fictional strategy game, not a simulation.
+        </p>
+        <button id="start-btn" class="primary">Start Negotiations</button>
+      </section>
+
+      <section id="game-screen" class="screen" aria-live="polite">
+        <header class="hud">
+          <div class="day-chip">Day <span id="day">1</span>/10</div>
+          <div class="clock" id="clock">10 days left</div>
+        </header>
+
+        <section class="meters" aria-label="Negotiation meters">
+          <div class="meter" data-meter="trust">
+            <label>Trust</label>
+            <div class="bar"><div id="trust-bar"></div></div>
+            <span id="trust-val">50</span>
+          </div>
+          <div class="meter" data-meter="pressure">
+            <label>Pressure</label>
+            <div class="bar"><div id="pressure-bar"></div></div>
+            <span id="pressure-val">35</span>
+          </div>
+          <div class="meter" data-meter="risk">
+            <label>Escalation Risk</label>
+            <div class="bar"><div id="risk-bar"></div></div>
+            <span id="risk-val">25</span>
+          </div>
+          <div class="meter" data-meter="verify">
+            <label>Verification</label>
+            <div class="bar"><div id="verify-bar"></div></div>
+            <span id="verify-val">40</span>
+          </div>
+        </section>
+
+        <section class="event-card">
+          <h2 id="event-title"></h2>
+          <p id="event-text"></p>
+          <div id="choices" class="choices"></div>
+        </section>
+
+        <section class="result">
+          <p id="result-text">Make your move.</p>
+          <button id="next-btn" class="secondary" hidden>Proceed to Next Day</button>
+        </section>
+      </section>
+
+      <section id="end-screen" class="screen" aria-live="polite">
+        <h2 id="ending-label"></h2>
+        <p id="ending-text"></p>
+        <p id="priority-text"></p>
+        <div class="share-wrap">
+          <textarea id="share-text" readonly></textarea>
+          <button id="copy-btn" class="secondary">Copy Share Text</button>
+        </div>
+        <button id="restart-btn" class="primary">Try Again</button>
+      </section>
+
+      <section id="tutorial" class="overlay" hidden>
+        <div class="panel">
+          <h3>How to play</h3>
+          <ul>
+            <li>You have 10 days to stabilize talks.</li>
+            <li>Each day, choose one action from the event card.</li>
+            <li>Balance Trust, Pressure, Escalation Risk, and Verification.</li>
+            <li>High Risk or runaway Pressure can end talks early.</li>
+          </ul>
+          <button id="close-tutorial" class="primary">Got it</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
